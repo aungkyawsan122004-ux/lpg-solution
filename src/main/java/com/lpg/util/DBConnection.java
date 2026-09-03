@@ -15,7 +15,7 @@ public class DBConnection {
             String port = System.getenv("MYSQLPORT");
             String dbName = System.getenv("MYSQLDATABASE");
             String user = System.getenv("MYSQLUSER");
-            String password = System.getenv("MYSQLPASSWORD"); // (သို့မဟုတ် MYSQL_ROOT_PASSWORD)
+            String password = System.getenv("MYSQL_ROOT_PASSWORD"); // (သို့မဟုတ် MYSQL_ROOT_PASSWORD)
             
             String url;
             if (host != null && !host.isEmpty()) {

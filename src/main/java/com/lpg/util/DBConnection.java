@@ -13,7 +13,7 @@ public class DBConnection {
             // Railway Environment Variables များကို စစ်ဆေးခြင်း
             String host = System.getenv("MYSQLHOST");
             String port = System.getenv("MYSQLPORT");
-            String dbName = System.getenv("MYSQL_DATABASE");
+            String dbName = System.getenv("MYSQLDATABASE");
             String user = System.getenv("MYSQLUSER");
             String password = System.getenv("MYSQL_PASSWORD"); // (သို့မဟုတ် MYSQL_ROOT_PASSWORD)
             

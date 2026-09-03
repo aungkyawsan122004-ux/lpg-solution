@@ -61,7 +61,7 @@
             </div>
 
             <!-- LoginServlet သို့ နာမည်နှင့် ဖုန်းနံပါတ် ပို့ပေးမည် -->
-            <form action="<%=request.getContextPath()%>/LoginServlet" method="post">
+           <form action="LoginServlet" method="post">
                 <div class="mb-3">
                     <label class="form-label fw-bold small text-secondary">အမည် (Name)</label>
                     <div class="input-group">

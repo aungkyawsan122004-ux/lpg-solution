@@ -23,9 +23,9 @@ public class DBConnection {
                 url = "jdbc:mysql://" + host + ":" + port + "/" + dbName + "?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8";
             } else {
                 // Localhost အတွက် (ယခင်အတိုင်း)
-                url = "jdbc:mysql://localhost:3306/lpg_platform?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8";
-                user = "root";
-                password = "aungkyawsan";
+               url = "jdbc:mysql://hopper.proxy.rlwy.net:46726/railway?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8";
+user = "root";
+password = "fLlkBUwrYHsshAppHofOvxRwEEsXczha";
             }
             
             conn = DriverManager.getConnection(url, user, password);

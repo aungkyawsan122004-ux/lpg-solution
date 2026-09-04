@@ -94,7 +94,9 @@
 
         .hero-banner-custom {
             position: relative;
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1542013936693-893e36444c66?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            /* k.jpg ကို နောက်ခံလိုဂိုအဖြစ် ထည့်သွင်းထားပြီး opacity ကို 0.12 ဖြင့် မှိန်ထားသည် */
+            background: linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.88)), url('k.jpg') center/contain no-repeat;
+            background-blend-mode: overlay;
             padding: 140px 0;
             color: #ffffff;
             text-align: center;
@@ -288,7 +290,7 @@
         </div>
     </header>
 
-    <!-- Hero Banner Section -->
+    <!-- Hero Banner Section with Logo Background -->
     <section class="hero-banner-custom">
         <div class="container">
             <span class="badge bg-warning text-dark px-3.5 py-2 rounded-pill mb-3 fw-bold shadow-sm">
@@ -333,7 +335,6 @@
                     %>
                     <div class="col-md-4">
                         <div class="content-grid-card">
-                            <!-- Database မှ Base64 ပုံကို တိုက်ရိုက်ခေါ်သုံးခြင်း -->
                             <div class="card-img-holder" style="background-image: url('<%= (dbImgArt != null && !dbImgArt.isEmpty()) ? dbImgArt : "" %>');"></div>
                             <div class="card-body-custom">
                                 <div>

@@ -51,7 +51,7 @@
         :root {
             --brand-primary: #1f2937;
             --brand-accent: #f97316;
-            --bg-earth: #f4f2ee;
+            --bg-earth: #f8fafc;
             --surface-white: #ffffff;
             --text-dark: #111827;
             --text-muted: #4b5563;
@@ -65,16 +65,16 @@
             line-height: 1.7;
         }
 
-        /* Top Bar & Header layout inspired by reference */
+        /* Top Bar & Header layout */
         .top-navbar {
             background-color: var(--surface-white);
             border-bottom: 1px solid var(--border-subtle);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            padding: 12px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
 
         .brand-logo {
-            height: 65px;
+            height: 70px; /* Logo size increased as requested */
             width: auto;
             object-fit: contain;
         }
@@ -93,11 +93,11 @@
             color: var(--brand-accent);
         }
 
-        /* Hero Banner (Rich Image Background with Dark Overlay) */
+        /* Hero Banner */
         .hero-banner-custom {
             position: relative;
-            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.65)), url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            padding: 130px 0;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 140px 0;
             color: #ffffff;
             text-align: center;
         }
@@ -120,18 +120,20 @@
             background-color: var(--brand-accent);
             color: #fff;
             padding: 12px 32px;
-            border-radius: 4px;
+            border-radius: 8px;
             font-weight: 700;
             text-transform: uppercase;
             border: none;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
         }
 
         .hero-btn:hover {
             background-color: #ea580c;
             color: #fff;
+            transform: translateY(-2px);
         }
 
         /* Subheader Titles */
@@ -142,7 +144,7 @@
             letter-spacing: 1px;
             color: var(--brand-primary);
             margin-bottom: 8px;
-            font-size: 1.25rem;
+            font-size: 1.35rem;
         }
 
         .category-subheading {
@@ -152,14 +154,14 @@
             margin-bottom: 40px;
         }
 
-        /* Classic Grid Cards with Smooth Zoom Animation */
+        /* Gorgeous Grid Cards */
         .content-grid-card {
             background: var(--surface-white);
             border: 1px solid var(--border-subtle);
-            border-radius: 8px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -168,26 +170,16 @@
 
         .content-grid-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1);
+            border-color: #fed7aa;
         }
 
         .card-img-holder {
-            height: 200px;
-            background-color: #e5e7eb;
+            height: 220px;
+            background-color: #f1f5f9;
             background-size: cover;
             background-position: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        /* Image Zoom Animation Effect on Card Hover */
-        .content-grid-card:hover .card-img-holder {
-            transform: scale(1.05);
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .card-img-holder {
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .card-body-custom {
@@ -201,7 +193,7 @@
         .badge-pill-custom {
             font-size: 0.75rem;
             font-weight: 700;
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -212,10 +204,10 @@
         .badge-vip-custom { background-color: #fce8e6; color: #c5221f; }
         .badge-course-custom { background-color: #e8f0fe; color: #1a73e8; }
 
-        /* Dark Footer Style matching reference */
+        /* Dark Footer */
         .footer-dark {
-            background-color: #111827;
-            color: #9ca3af;
+            background-color: #0f172a;
+            color: #94a3b8;
             padding: 70px 0 30px 0;
             font-size: 0.9rem;
         }
@@ -240,7 +232,7 @@
         }
 
         .footer-dark ul li a {
-            color: #9ca3af;
+            color: #94a3b8;
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -276,23 +268,23 @@
 
             <div class="d-flex align-items-center gap-3">
                 <% if (loggedInPhone != null) { %>
-                    <span class="small text-secondary d-none md-inline bg-light px-3 py-1.5 rounded border">
+                    <span class="small text-secondary d-none md-inline bg-light px-3 py-1.5 rounded border shadow-sm">
                         <i class="fa-solid fa-user-circle me-1 text-primary"></i>
                         <b class="text-dark"><%= displayName %></b>
                     </span>
                     <% if (isVipApproved) { %>
-                        <span class="badge bg-danger text-white px-2.5 py-1.5 rounded-pill fs-7 fw-bold">
+                        <span class="badge bg-danger text-white px-3 py-2 rounded-pill fs-7 fw-bold shadow-sm">
                             <i class="fa-solid fa-crown me-1 text-warning"></i> VIP
                         </span>
                     <% } else { %>
-                        <span class="badge bg-secondary text-white px-2.5 py-1.5 rounded-pill fs-7">
+                        <span class="badge bg-secondary text-white px-3 py-2 rounded-pill fs-7">
                             Free
                         </span>
                     <% } %>
-                    <a href="LogoutServlet" class="btn btn-outline-danger btn-sm px-3 fw-bold">ထွက်ရန်</a>
+                    <a href="LogoutServlet" class="btn btn-outline-danger btn-sm px-3 fw-bold rounded-pill">ထွက်ရန်</a>
                 <% } else { %>
-                    <a href="login.jsp" class="btn btn-outline-dark btn-sm px-3 fw-bold">အကောင့်ဝင်ရန်</a>
-                    <a href="subscribe.jsp" class="btn hero-btn btn-sm py-2">အဖွဲ့ဝင်ရန်</a>
+                    <a href="login.jsp" class="btn btn-outline-dark btn-sm px-3 fw-bold rounded-pill">အကောင့်ဝင်ရန်</a>
+                    <a href="subscribe.jsp" class="btn hero-btn btn-sm py-2 rounded-pill">အဖွဲ့ဝင်ရန်</a>
                 <% } %>
             </div>
         </div>
@@ -301,12 +293,12 @@
     <!-- Hero Banner Section -->
     <section class="hero-banner-custom">
         <div class="container">
-            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3 fw-bold shadow-sm">
-                <i class="fa-solid fa-fire me-1"></i> မြန်မာ့ LPG စက်မှုလုပ်ငန်းနှင့် နည်းပညာဗဟို
+            <span class="badge bg-warning text-dark px-3.5 py-2 rounded-pill mb-3 fw-bold shadow-sm">
+                <i class="fa-solid fa-fire me-1 text-danger"></i> မြန်မာ့ LPG စက်မှုလုပ်ငန်းနှင့် နည်းပညာဗဟို
             </span>
             <h1>LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတများနှင့် ဆောင်းပါးများ</h1>
             <p>
-                စက်ရုံဆိုင်ရာ ဘေးကင်းလုံခြုံရေး၊ မီးသတ်စံချိန်မီ တပ်ဆင်နည်းစနစ်များ နှင့် လုပ်ငန်းသုံး ကျွမ်းကျင်ဗဟုသုတ ဆောင်းပါးများကို တစ်နေရာတည်းတွင် လေ့လာနိုင်ပါသည်။
+                စက်ရုံဆိုင်ရာ ဘေးကင်းလုံခြုံရေး၊ မီးသတ်စံချိန်မီ တပ်ဆင်နည်းစနစ်များ နှင့် လုပ်ငန်းသုံး ကျွမ်းကျင်ဗဟုသုတ ဆောင်းပါးများကို တစ်နေရာတည်းတွင် စနစ်တကျ လေ့လာနိုင်ပါသည်။
             </p>
             <a href="#articles" class="hero-btn">ဆောင်းပါးများ ဖတ်ရှုမည်</a>
         </div>
@@ -326,9 +318,9 @@
                         stmt = conn.createStatement();
             %>
 
-            <!-- SECTION 1: သင်တန်းများ (Courses) - LPG Technical Training & Safety Theme Images -->
+            <!-- SECTION 1: သင်တန်းများ (Courses) -->
             <div id="courses" class="mb-5 pt-4">
-                <h3 class="category-heading">ကျွမ်းကျင်မှု သင်တန်းများ (Courses)</h3>
+                <h3 class="category-heading"><i class="fa-solid fa-graduation-cap text-primary me-2"></i>ကျွမ်းကျင်မှု သင်တန်းများ (Courses)</h3>
                 <p class="category-subheading">စနစ်တကျ လေ့ကျင့်သင်ကြားပေးသော LPG နည်းပညာနှင့် စီမံခန့်ခွဲမှု သင်တန်းများ</p>
                 
                 <div class="row g-4">
@@ -342,8 +334,8 @@
                     %>
                     <div class="col-md-4">
                         <div class="content-grid-card">
-                            <!-- Topic-related training and technical engineering image -->
-                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80');"></div>
+                            <!-- Lovely 3D / Illustration Animation style image tailored for courses -->
+                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80');"></div>
                             <div class="card-body-custom">
                                 <div>
                                     <span class="badge-pill-custom <%= badgeClass %>"><%= badge %></span>
@@ -365,9 +357,9 @@
                 </div>
             </div>
 
-            <!-- SECTION 2: ဆောင်းပါးများ (Articles) - LPG Business, Energy & Safety Management Theme Images -->
+            <!-- SECTION 2: ဆောင်းပါးများ (Articles) -->
             <div id="articles" class="mb-5 pt-4">
-                <h3 class="category-heading">LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတနှင့် ဆောင်းပါးများ</h3>
+                <h3 class="category-heading"><i class="fa-solid fa-book-open-reader text-primary me-2"></i>LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတနှင့် ဆောင်းပါးများ</h3>
                 <p class="category-subheading">လုပ်ငန်းရှင်များနှင့် ကျွမ်းကျင်ပညာရှင်များအတွက် သိသင့်သိထိုက်သော အချက်အလက်များ</p>
                 
                 <div class="row g-4">
@@ -381,8 +373,8 @@
                     %>
                     <div class="col-md-4">
                         <div class="content-grid-card">
-                            <!-- Topic-related energy, gas storage, and industry management image -->
-                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80');"></div>
+                            <!-- Lovely 3D / Illustration Animation style image tailored for articles & knowledge -->
+                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80');"></div>
                             <div class="card-body-custom">
                                 <div>
                                     <span class="badge-pill-custom <%= badgeClass %> mb-2"><%= badge %> ARTICLE</span>
@@ -427,14 +419,14 @@
                     <p class="text-secondary mb-4 small px-2">
                         သင်တန်း ဗီဒီယိုများ၊ အဆင့်မြင့် လုပ်ငန်းသုံး ဗဟုသုတဆောင်းပါးများနှင့် နည်းပညာ အကူအညီများကို အကန့်အသတ်မရှိ ရရှိပါမည်။
                     </p>
-                    <a href="subscribe.jsp" class="hero-btn w-100 py-3 text-uppercase shadow-sm">ယခုပဲ အဖွဲ့ဝင်မည်</a>
+                    <a href="subscribe.jsp" class="hero-btn w-100 py-3 text-uppercase shadow-sm rounded-pill">ယခုပဲ အဖွဲ့ဝင်မည်</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Dark Footer matching reference layout -->
+    <!-- Dark Footer -->
     <footer class="footer-dark">
         <div class="container">
             <div class="row g-4">

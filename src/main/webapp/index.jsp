@@ -65,7 +65,6 @@
             line-height: 1.7;
         }
 
-        /* Top Bar & Header layout */
         .top-navbar {
             background-color: var(--surface-white);
             border-bottom: 1px solid var(--border-subtle);
@@ -74,7 +73,7 @@
         }
 
         .brand-logo {
-            height: 70px; /* Logo size increased as requested */
+            height: 70px;
             width: auto;
             object-fit: contain;
         }
@@ -93,10 +92,9 @@
             color: var(--brand-accent);
         }
 
-        /* Hero Banner */
         .hero-banner-custom {
             position: relative;
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1542013936693-893e36444c66?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             padding: 140px 0;
             color: #ffffff;
             text-align: center;
@@ -136,7 +134,6 @@
             transform: translateY(-2px);
         }
 
-        /* Subheader Titles */
         .category-heading {
             text-align: center;
             font-weight: 800;
@@ -154,7 +151,6 @@
             margin-bottom: 40px;
         }
 
-        /* Gorgeous Grid Cards */
         .content-grid-card {
             background: var(--surface-white);
             border: 1px solid var(--border-subtle);
@@ -204,7 +200,6 @@
         .badge-vip-custom { background-color: #fce8e6; color: #c5221f; }
         .badge-course-custom { background-color: #e8f0fe; color: #1a73e8; }
 
-        /* Dark Footer */
         .footer-dark {
             background-color: #0f172a;
             color: #94a3b8;
@@ -334,8 +329,8 @@
                     %>
                     <div class="col-md-4">
                         <div class="content-grid-card">
-                            <!-- Lovely 3D / Illustration Animation style image tailored for courses -->
-                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80');"></div>
+                            <!-- Direct LPG / Gas Cylinder / Technical Safety Course Image -->
+                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80');"></div>
                             <div class="card-body-custom">
                                 <div>
                                     <span class="badge-pill-custom <%= badgeClass %>"><%= badge %></span>
@@ -373,8 +368,8 @@
                     %>
                     <div class="col-md-4">
                         <div class="content-grid-card">
-                            <!-- Lovely 3D / Illustration Animation style image tailored for articles & knowledge -->
-                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80');"></div>
+                            <!-- Direct Industrial Gas / Energy / Flame Safety Article Image -->
+                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&q=80');"></div>
                             <div class="card-body-custom">
                                 <div>
                                     <span class="badge-pill-custom <%= badgeClass %> mb-2"><%= badge %> ARTICLE</span>

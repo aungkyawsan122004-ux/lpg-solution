@@ -52,6 +52,11 @@
                             </select>
                         </div>
                         <div class="mb-3">
+                            <label class="form-label fw-bold">ပုံလင့်ခ် (Image URL)</label>
+                            <input type="url" name="imageUrl" class="form-control" placeholder="https://example.com/image.jpg (သို့) ပုံလင့်ခ်ထည့်ရန်..." required>
+                            <div class="form-text small">Unsplash သို့မဟုတ် အခြား Image Hosting မှ Direct Image Link ထည့်ပါ။</div>
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label fw-bold">ခေါင်းစဉ် (Title)</label>
                             <input type="text" name="title" class="form-control" placeholder="ခေါင်းစဉ် ရေးပါ..." required>
                         </div>
@@ -61,7 +66,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label fw-bold">အကြောင်းအရာ အပြည့်အစုံ (Full Content Details)</label>
-                            <textarea name="contentBody" class="form-control" rows="6" placeholder="အသေးစိတ် အကြောင်းအရာများ ရေးသားရန်..." required></textarea>
+                            <textarea name="contentBody" class="form-control" rows="5" placeholder="အသေးစိတ် အကြောင်းအရာများ ရေးသားရန်..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary w-100 fw-bold py-2 rounded-pill">
                             <i class="fa-solid fa-upload me-1"></i> တင်မည်

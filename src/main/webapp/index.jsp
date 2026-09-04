@@ -72,12 +72,6 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
 
-        .brand-logo {
-            height: 70px;
-            width: auto;
-            object-fit: contain;
-        }
-
         .nav-links-top {
             font-size: 0.9rem;
             font-weight: 700;
@@ -94,8 +88,7 @@
 
         .hero-banner-custom {
             position: relative;
-            background: linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.88)), url('k.jpg') center/contain no-repeat;
-            background-blend-mode: overlay;
+            background: linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.88));
             padding: 140px 0;
             color: #ffffff;
             text-align: center;
@@ -255,8 +248,8 @@
     <!-- Top Navigation Bar -->
     <header class="top-navbar sticky-top">
         <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand d-flex align-items-center" href="index.jsp">
-                <img src="k.jpg" alt="NexLPG Logo" class="brand-logo">
+            <a class="navbar-brand fw-bold text-dark text-decoration-none fs-5" href="index.jsp">
+                LPG BUSINESS SOLUTION
             </a>
             
             <nav class="d-none d-lg-flex align-items-center gap-4">

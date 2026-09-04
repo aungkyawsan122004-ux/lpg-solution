@@ -49,227 +49,261 @@
 
     <style>
         :root {
-            --primary: #f97316;
-            --primary-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-            --secondary-color: #0f172a;
-            --bg-light: #f8fafc;
+            --brand-primary: #1f2937;
+            --brand-accent: #f97316;
+            --bg-earth: #f4f2ee;
             --surface-white: #ffffff;
-            --border-light: #e2e8f0;
-            --text-main: #1e293b;
-            --text-sub: #64748b;
+            --text-dark: #111827;
+            --text-muted: #4b5563;
+            --border-subtle: #e5e7eb;
         }
 
         body {
             font-family: 'Padauk', 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.8;
+            background-color: var(--bg-earth);
+            color: var(--text-dark);
+            line-height: 1.7;
         }
 
-        /* Modern Glassmorphism Navbar */
-        .navbar-custom {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
-            padding: 12px 0;
-            transition: all 0.3s ease;
+        /* Top Bar & Header layout inspired by reference */
+        .top-navbar {
+            background-color: var(--surface-white);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .brand-logo {
-            height: 56px;
+            height: 65px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
         }
 
-        /* Gorgeous Dynamic Hero Section */
-        .hero-banner {
-            padding: 170px 0 90px;
-            background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.08), transparent 40%),
-                        radial-gradient(circle at bottom left, rgba(15, 23, 42, 0.04), transparent 50%),
-                        #ffffff;
-            border-bottom: 1px solid var(--border-light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-badge {
-            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-            border: 1px solid #fed7aa;
-            color: #c2410c;
+        .nav-links-top {
+            font-size: 0.9rem;
             font-weight: 700;
-            padding: 8px 20px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.08);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        /* Premium Modern Cards with Soft Elevation */
-        .app-card {
+        .nav-links-top:hover {
+            color: var(--brand-accent);
+        }
+
+        /* Hero Banner (Rich Image Background with Dark Overlay) */
+        .hero-banner-custom {
+            position: relative;
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.65)), url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 130px 0;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .hero-banner-custom h1 {
+            font-weight: 800;
+            font-size: 2.75rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-banner-custom p {
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin: 0 auto 30px auto;
+            color: #e2e8f0;
+        }
+
+        .hero-btn {
+            background-color: var(--brand-accent);
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .hero-btn:hover {
+            background-color: #ea580c;
+            color: #fff;
+        }
+
+        /* Subheader Titles */
+        .category-heading {
+            text-align: center;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--brand-primary);
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+
+        .category-subheading {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+        }
+
+        /* Classic Grid Cards matching the style */
+        .content-grid-card {
             background: var(--surface-white);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            border-radius: 24px;
-            padding: 32px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+        }
+
+        .content-grid-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .card-img-holder {
+            height: 200px;
+            background-color: #e5e7eb;
+            background-size: cover;
+            background-position: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .app-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--primary-gradient);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .card-body-custom {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .app-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 45px rgba(249, 115, 22, 0.12);
-            border-color: #fed7aa;
-        }
-
-        .app-card:hover::after {
-            opacity: 1;
-        }
-
-        .badge-style {
+        .badge-pill-custom {
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 6px 16px;
-            border-radius: 30px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             display: inline-block;
-            font-size: 0.8rem;
+            margin-bottom: 12px;
+        }
+        .badge-free-custom { background-color: #e6f4ea; color: #137333; }
+        .badge-vip-custom { background-color: #fce8e6; color: #c5221f; }
+        .badge-course-custom { background-color: #e8f0fe; color: #1a73e8; }
+
+        /* Dark Footer Style matching reference */
+        .footer-dark {
+            background-color: #111827;
+            color: #9ca3af;
+            padding: 70px 0 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-dark h5 {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        .badge-free { background-color: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
-        .badge-vip { background-color: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
-        .badge-course { background-color: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; }
-
-        /* Modern Pricing Plan Card */
-        .pricing-card {
-            background: linear-gradient(145deg, #ffffff 0%, #fffbf7 100%);
-            border: 2px solid #fed7aa;
-            border-radius: 32px;
-            padding: 50px 40px;
-            box-shadow: 0 25px 50px rgba(249, 115, 22, 0.08);
-            position: relative;
-            overflow: hidden;
+        .footer-dark ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: var(--primary-gradient);
+        .footer-dark ul li {
+            margin-bottom: 10px;
         }
 
-        /* Buttons with Vibrant Gradients */
-        .btn-brand {
-            background: var(--primary-gradient);
-            color: #ffffff;
-            border-radius: 50px;
-            padding: 14px 32px;
-            font-weight: 700;
-            border: none;
-            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
-            transition: all 0.3s ease;
+        .footer-dark ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        .btn-brand:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(249, 115, 22, 0.4);
+        .footer-dark ul li a:hover {
             color: #ffffff;
         }
 
-        .section-header {
-            font-weight: 800;
-            color: var(--secondary-color);
-            position: relative;
-            padding-bottom: 12px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-gradient);
-            border-radius: 2px;
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 50px;
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-custom px-4">
-        <div class="container">
+    <!-- Top Navigation Bar -->
+    <header class="top-navbar sticky-top">
+        <div class="container d-flex justify-content-between align-items-center">
             <a class="navbar-brand d-flex align-items-center" href="index.jsp">
                 <img src="k.jpg" alt="NexLPG Logo" class="brand-logo">
             </a>
+            
+            <nav class="d-none d-lg-flex align-items-center gap-4">
+                <a href="index.jsp" class="nav-links-top">ပင်မစာမျက်နှာ</a>
+                <a href="#courses" class="nav-links-top">သင်တန်းများ</a>
+                <a href="#articles" class="nav-links-top">ဆောင်းပါးများ</a>
+                <a href="#pricing" class="nav-links-top">VIP အဖွဲ့ဝင်ရန်</a>
+            </nav>
+
             <div class="d-flex align-items-center gap-3">
                 <% if (loggedInPhone != null) { %>
-                    <span class="small text-secondary d-none d-md-inline bg-white px-3 py-1.5 rounded-pill border shadow-sm">
+                    <span class="small text-secondary d-none md-inline bg-light px-3 py-1.5 rounded border">
                         <i class="fa-solid fa-user-circle me-1 text-primary"></i>
                         <b class="text-dark"><%= displayName %></b>
                     </span>
                     <% if (isVipApproved) { %>
-                        <span class="badge bg-danger text-white px-3 py-2 rounded-pill fs-6 fw-bold shadow-sm">
-                            <i class="fa-solid fa-crown me-1 text-warning"></i> VIP Member
+                        <span class="badge bg-danger text-white px-2.5 py-1.5 rounded-pill fs-7 fw-bold">
+                            <i class="fa-solid fa-crown me-1 text-warning"></i> VIP
                         </span>
                     <% } else { %>
-                        <span class="badge bg-white text-secondary border px-3 py-2 rounded-pill fs-6">
-                            <i class="fa-solid fa-user me-1"></i> Free Member
+                        <span class="badge bg-secondary text-white px-2.5 py-1.5 rounded-pill fs-7">
+                            Free
                         </span>
                     <% } %>
-                    <a href="LogoutServlet" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-bold">ထွက်ရန်</a>
+                    <a href="LogoutServlet" class="btn btn-outline-danger btn-sm px-3 fw-bold">ထွက်ရန်</a>
                 <% } else { %>
-                    <a href="login.jsp" class="btn btn-outline-dark btn-sm rounded-pill px-3 fw-bold">အကောင့်ဝင်ရန်</a>
-                    <a href="subscribe.jsp" class="btn btn-brand btn-sm">VIP အဖွဲ့ဝင်ရန်</a>
+                    <a href="login.jsp" class="btn btn-outline-dark btn-sm px-3 fw-bold">အကောင့်ဝင်ရန်</a>
+                    <a href="subscribe.jsp" class="btn hero-btn btn-sm py-2">အဖွဲ့ဝင်ရန်</a>
                 <% } %>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero-banner text-center">
+    <!-- Hero Banner Section -->
+    <section class="hero-banner-custom">
         <div class="container">
-            <div class="hero-badge mb-4 mx-auto">
-                <i class="fa-solid fa-fire-flame-curved text-primary"></i> မြန်မာ့ LPG လုပ်ငန်းဆိုင်ရာဗဟုသုတများနှင့် ဆောင်းပါးများ
-            </div>
-            <h1 class="display-5 fw-extrabold mb-4 text-dark" style="letter-spacing: -1px;">
-                LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတများနှင့် ဆောင်းပါးများ
-            </h1>
-            <p class="fs-5 mx-auto mb-4 text-secondary" style="max-width: 740px;">
-                စက်ရုံ/ဆိုင်ခန်း ဘေးကင်းလုံခြုံရေး၊ မီးသတ်စံချိန်မီ တပ်ဆင်နည်းများနှင့် ပြည်တွင်း/ပြည်ပ LPG လုပ်ငန်းသုံး ကျွမ်းကျင်ဗဟုသုတ ဆောင်းပါးများကို စနစ်တကျ လေ့လာပါ။
+            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3 fw-bold shadow-sm">
+                <i class="fa-solid fa-fire me-1"></i> မြန်မာ့ LPG စက်မှုလုပ်ငန်းနှင့် နည်းပညာဗဟို
+            </span>
+            <h1>LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတများနှင့် ဆောင်းပါးများ</h1>
+            <p>
+                စက်ရုံဆိုင်ရာ ဘေးကင်းလုံခြုံရေး၊ မီးသတ်စံချိန်မီ တပ်ဆင်နည်းစနစ်များ နှင့် လုပ်ငန်းသုံး ကျွမ်းကျင်ဗဟုသုတ ဆောင်းပါးများကို တစ်နေရာတည်းတွင် လေ့လာနိုင်ပါသည်။
             </p>
+            <a href="#articles" class="hero-btn">ဆောင်းပါးများ ဖတ်ရှုမည်</a>
         </div>
     </section>
 
-    <!-- Content Section -->
+    <!-- Main Content Dynamic Section -->
     <section class="py-5">
-        <div class="container py-4">
+        <div class="container my-3">
               
             <%
                 Connection conn = null;
@@ -282,10 +316,10 @@
             %>
 
             <!-- SECTION 1: သင်တန်းများ (Courses) -->
-            <div class="mb-5">
-                <h4 class="section-header">
-                    <i class="fa-solid fa-graduation-cap text-primary"></i>ကျွမ်းကျင်မှု သင်တန်းများ (Courses)
-                </h4>
+            <div id="courses" class="mb-5 pt-4">
+                <h3 class="category-heading">ကျွမ်းကျင်မှု သင်တန်းများ (Courses)</h3>
+                <p class="category-subheading">စနစ်တကျ လေ့ကျင့်သင်ကြားပေးသော LPG နည်းပညာနှင့် စီမံခန့်ခွဲမှု သင်တန်းများ</p>
+                
                 <div class="row g-4">
                     <%
                         rs = stmt.executeQuery("SELECT * FROM contents WHERE category = 'COURSE' ORDER BY id DESC");
@@ -293,36 +327,37 @@
                         while(rs.next()) {
                             hasCourse = true;
                             String badge = rs.getString("badge_type");
-                            String badgeClass = badge.equalsIgnoreCase("VIP") ? "badge-vip" : (badge.equalsIgnoreCase("FREE") ? "badge-free" : "badge-course");
+                            String badgeClass = badge.equalsIgnoreCase("VIP") ? "badge-vip-custom" : (badge.equalsIgnoreCase("FREE") ? "badge-free-custom" : "badge-course-custom");
                     %>
                     <div class="col-md-4">
-                        <div class="app-card">
-                            <div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="badge-style <%= badgeClass %>"><%= badge %></span>
+                        <div class="content-grid-card">
+                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="card-body-custom">
+                                <div>
+                                    <span class="badge-pill-custom <%= badgeClass %>"><%= badge %></span>
+                                    <h5 class="fw-bold text-dark mb-2 fs-5"><%= rs.getString("title") %></h5>
+                                    <p class="text-secondary small mb-3"><%= rs.getString("description") %></p>
                                 </div>
-                                <h5 class="fw-bold text-dark mb-2"><%= rs.getString("title") %></h5>
-                                <p class="text-secondary small mb-4"><%= rs.getString("description") %></p>
+                                <a href="content-detail.jsp?id=<%= rs.getInt("id") %>" class="text-dark text-decoration-none fw-bold small d-flex align-items-center gap-2 mt-2">
+                                    အသေးစိတ် ကြည့်မည် <i class="fa-solid fa-arrow-right text-primary"></i>
+                                </a>
                             </div>
-                            <a href="content-detail.jsp?id=<%= rs.getInt("id") %>" class="text-primary text-decoration-none fw-bold small d-inline-flex align-items-center gap-1">
-                                အသေးစိတ် ကြည့်မည် <i class="fa-solid fa-arrow-right ms-1"></i>
-                            </a>
                         </div>
                     </div>
                     <% 
                         } 
                         if(!hasCourse) {
                     %>
-                    <div class="col-12"><p class="text-muted">သင်တန်းများ မရှိသေးပါ။ Admin Panel မှ စတင်ထည့်သွင်းပါ။</p></div>
+                    <div class="col-12 text-center py-4"><p class="text-muted">သင်တန်းများ မရှိသေးပါ။ Admin Panel မှ စတင်ထည့်သွင်းပါ။</p></div>
                     <% } %>
                 </div>
             </div>
 
             <!-- SECTION 2: ဆောင်းပါးများ (Articles) -->
-            <div class="mb-5">
-                <h4 class="section-header">
-                    <i class="fa-solid fa-newspaper text-primary"></i>LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတနှင့် ဆောင်းပါးများ (Articles)
-                </h4>
+            <div id="articles" class="mb-5 pt-4">
+                <h3 class="category-heading">LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတနှင့် ဆောင်းပါးများ</h3>
+                <p class="category-subheading">လုပ်ငန်းရှင်များနှင့် ကျွမ်းကျင်ပညာရှင်များအတွက် သိသင့်သိထိုက်သော အချက်အလက်များ</p>
+                
                 <div class="row g-4">
                     <%
                         rs = stmt.executeQuery("SELECT * FROM contents WHERE category = 'ARTICLE' ORDER BY id DESC");
@@ -330,25 +365,28 @@
                         while(rs.next()) {
                             hasArticle = true;
                             String badge = rs.getString("badge_type");
-                            String badgeClass = badge.equalsIgnoreCase("VIP") ? "badge-vip" : "badge-free";
+                            String badgeClass = badge.equalsIgnoreCase("VIP") ? "badge-vip-custom" : "badge-free-custom";
                     %>
                     <div class="col-md-4">
-                        <div class="app-card">
-                            <div>
-                                <span class="badge-style <%= badgeClass %> mb-3"><%= badge %> ARTICLE</span>
-                                <h5 class="fw-bold text-dark mb-2"><%= rs.getString("title") %></h5>
-                                <p class="text-secondary small mb-4"><%= rs.getString("description") %></p>
+                        <div class="content-grid-card">
+                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="card-body-custom">
+                                <div>
+                                    <span class="badge-pill-custom <%= badgeClass %> mb-2"><%= badge %> ARTICLE</span>
+                                    <h5 class="fw-bold text-dark mb-2 fs-5"><%= rs.getString("title") %></h5>
+                                    <p class="text-secondary small mb-3"><%= rs.getString("description") %></p>
+                                </div>
+                                <a href="content-detail.jsp?id=<%= rs.getInt("id") %>" class="text-dark text-decoration-none fw-bold small d-flex align-items-center gap-2 mt-2">
+                                    ဖတ်ရှုရန် <i class="fa-solid fa-arrow-right text-primary"></i>
+                                </a>
                             </div>
-                            <a href="content-detail.jsp?id=<%= rs.getInt("id") %>" class="text-primary text-decoration-none fw-bold small d-inline-flex align-items-center gap-1">
-                                ဖတ်ရှုရန် <i class="fa-solid fa-arrow-right ms-1"></i>
-                            </a>
                         </div>
                     </div>
                     <% 
                         } 
                         if(!hasArticle) {
                     %>
-                    <div class="col-12"><p class="text-muted">ဆောင်းပါးများ မရှိသေးပါ။ Admin Panel မှ စတင်ထည့်သွင်းပါ။</p></div>
+                    <div class="col-12 text-center py-4"><p class="text-muted">ဆောင်းပါးများ မရှိသေးပါ။ Admin Panel မှ စတင်ထည့်သွင်းပါ။</p></div>
                     <% } %>
                 </div>
             </div>
@@ -356,7 +394,7 @@
             <%
                     }
                 } catch(Exception e) {
-                    out.println("<p class='text-danger'>Database Error: " + e.getMessage() + "</p>");
+                    out.println("<p class='text-danger text-center'>Database Error: " + e.getMessage() + "</p>");
                 } finally {
                     if(rs != null) rs.close();
                     if(stmt != null) stmt.close();
@@ -366,24 +404,54 @@
 
             <!-- Subscription Section -->
             <div id="pricing" class="py-5 mt-4">
-                <div class="pricing-card text-center mx-auto" style="max-width: 520px;">
-                    <div class="mb-3">
-                        <i class="fa-solid fa-crown text-warning display-4"></i>
-                    </div>
+                <div class="bg-white border rounded-4 p-5 text-center mx-auto shadow-sm" style="max-width: 540px;">
+                    <i class="fa-solid fa-crown text-warning display-4 mb-3"></i>
                     <h3 class="fw-bold text-dark mb-2">VIP Membership Plan</h3>
-                    <div class="my-4">
-                        <span class="display-4 fw-extrabold text-primary">30,000</span>
+                    <div class="my-3">
+                        <span class="display-4 fw-extrabold text-dark">30,000</span>
                         <span class="text-secondary fs-6 fw-semibold"> Ks / လစဉ်</span>
                     </div>
-                    <p class="text-secondary mb-4 px-2">
-                        သင်တန်း ဗီဒီယိုများ၊ လုပ်ငန်းသုံး ဗဟုသုတဆောင်းပါးများနှင့် နည်းပညာ အကူအညီများကို အကန့်အသတ်မရှိ ရရှိပါမည်။
+                    <p class="text-secondary mb-4 small px-2">
+                        သင်တန်း ဗီဒီယိုများ၊ အဆင့်မြင့် လုပ်ငန်းသုံး ဗဟုသုတဆောင်းပါးများနှင့် နည်းပညာ အကူအညီများကို အကန့်အသတ်မရှိ ရရှိပါမည်။
                     </p>
-                    <a href="subscribe.jsp" class="btn btn-brand w-100 py-3 text-uppercase shadow-sm">ယခုပဲ အဖွဲ့ဝင်မည်</a>
+                    <a href="subscribe.jsp" class="hero-btn w-100 py-3 text-uppercase shadow-sm">ယခုပဲ အဖွဲ့ဝင်မည်</a>
                 </div>
             </div>
 
         </div>
     </section>
+
+    <!-- Dark Footer matching reference layout -->
+    <footer class="footer-dark">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="text-white">NexLPG Center</h5>
+                    <p class="small text-muted">မြန်မာနိုင်ငံအတွင်းရှိ LPG လုပ်ငန်းရှင်များ၊ တပ်ဆင်ရေးပညာရှင်များနှင့် စိတ်ပါဝင်စားသူများအတွက် ဘေးကင်းလုံခြုံရေးနှင့် နည်းပညာဗဟုသုတများကို ဖြန့်ဝေပေးနေသော စင်တာဖြစ်သည်။</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>လင့်ခ်များ</h5>
+                    <ul>
+                        <li><a href="index.jsp">ပင်မစာမျက်နှာ</a></li>
+                        <li><a href="#courses">သင်တန်းများ</a></li>
+                        <li><a href="#articles">ဆောင်းပါးများ</a></li>
+                        <li><a href="subscribe.jsp">အဖွဲ့ဝင်ရန်</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <h5>ဆက်သွယ်ရန်</h5>
+                    <ul class="small text-muted">
+                        <li><i class="fa-solid fa-location-dot me-2 text-warning"></i> ရန်ကုန်မြို့, မြန်မာနိုင်ငံ</li>
+                        <li><i class="fa-solid fa-phone me-2 text-warning"></i> +95 9 123 456 789</li>
+                        <li><i class="fa-solid fa-envelope me-2 text-warning"></i> support@nexlpg.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="mb-0">&copy; 2026 NexLPG. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

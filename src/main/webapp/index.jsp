@@ -41,7 +41,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexLPG | မြန်မာ့ LPG နည်းပညာနှင့် စီးပွားရေး ဗဟို</title>
+    <title>NexLPG | မြန်မာ့ LPG လုပ်ငန်းဆိုင်ရာဗဟုသုတများနှင့် ဆောင်းပါးများ</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -50,78 +50,121 @@
     <style>
         :root {
             --primary: #f97316;
-            --primary-dark: #ea580c;
-            --secondary-color: #1e293b;
+            --primary-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            --secondary-color: #0f172a;
             --bg-light: #f8fafc;
             --surface-white: #ffffff;
             --border-light: #e2e8f0;
-            --text-main: #0f172a;
-            --text-sub: #475569;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
         }
 
         body {
             font-family: 'Padauk', 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-light);
             color: var(--text-main);
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
+        /* Modern Glassmorphism Navbar */
         .navbar-custom {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-light);
-            box-shadow: 0 4px 20px rgba(30, 41, 59, 0.04);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+            padding: 12px 0;
+            transition: all 0.3s ease;
         }
 
         .brand-logo {
-            height: 44px;
+            height: 56px;
             width: auto;
             object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
         }
 
+        /* Gorgeous Dynamic Hero Section */
         .hero-banner {
-            padding: 160px 0 80px;
-            background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 40%, var(--bg-light) 100%);
+            padding: 170px 0 90px;
+            background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.08), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(15, 23, 42, 0.04), transparent 50%),
+                        #ffffff;
             border-bottom: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
         }
 
+        .hero-badge {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            border: 1px solid #fed7aa;
+            color: #c2410c;
+            font-weight: 700;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.08);
+        }
+
+        /* Premium Modern Cards with Soft Elevation */
         .app-card {
             background: var(--surface-white);
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(30, 41, 59, 0.02);
-            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .app-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(249, 115, 22, 0.12);
             border-color: #fed7aa;
+        }
+
+        .app-card:hover::after {
+            opacity: 1;
         }
 
         .badge-style {
             font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 20px;
+            padding: 6px 16px;
+            border-radius: 30px;
             display: inline-block;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
         }
 
-        .badge-free { background-color: #dcfce7; color: #15803d; }
-        .badge-vip { background-color: #fee2e2; color: #b91c1c; }
-        .badge-course { background-color: #ffedd5; color: #c2410c; }
+        .badge-free { background-color: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+        .badge-vip { background-color: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+        .badge-course { background-color: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; }
 
+        /* Modern Pricing Plan Card */
         .pricing-card {
-            background: #ffffff;
-            border: 2px solid var(--primary);
-            border-radius: 28px;
-            padding: 45px 35px;
-            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.08);
+            background: linear-gradient(145deg, #ffffff 0%, #fffbf7 100%);
+            border: 2px solid #fed7aa;
+            border-radius: 32px;
+            padding: 50px 40px;
+            box-shadow: 0 25px 50px rgba(249, 115, 22, 0.08);
             position: relative;
             overflow: hidden;
         }
@@ -132,33 +175,48 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #f97316, #fbbf24);
+            height: 8px;
+            background: var(--primary-gradient);
         }
 
+        /* Buttons with Vibrant Gradients */
         .btn-brand {
-            background: var(--primary);
+            background: var(--primary-gradient);
             color: #ffffff;
             border-radius: 50px;
-            padding: 12px 30px;
+            padding: 14px 32px;
             font-weight: 700;
             border: none;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
-            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
+            transition: all 0.3s ease;
         }
 
         .btn-brand:hover {
-            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(249, 115, 22, 0.4);
             color: #ffffff;
-            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
         }
 
         .section-header {
-            border-left: 5px solid var(--primary);
-            padding-left: 14px;
             font-weight: 800;
             color: var(--secondary-color);
-            letter-spacing: -0.5px;
+            position: relative;
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
         }
     </style>
 </head>
@@ -167,12 +225,12 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-custom px-4">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="index.jsp">
+            <a class="navbar-brand d-flex align-items-center" href="index.jsp">
                 <img src="k.jpg" alt="NexLPG Logo" class="brand-logo">
             </a>
             <div class="d-flex align-items-center gap-3">
                 <% if (loggedInPhone != null) { %>
-                    <span class="small text-secondary d-none d-md-inline">
+                    <span class="small text-secondary d-none d-md-inline bg-white px-3 py-1.5 rounded-pill border shadow-sm">
                         <i class="fa-solid fa-user-circle me-1 text-primary"></i>
                         <b class="text-dark"><%= displayName %></b>
                     </span>
@@ -181,7 +239,7 @@
                             <i class="fa-solid fa-crown me-1 text-warning"></i> VIP Member
                         </span>
                     <% } else { %>
-                        <span class="badge bg-light text-secondary border px-3 py-2 rounded-pill fs-6">
+                        <span class="badge bg-white text-secondary border px-3 py-2 rounded-pill fs-6">
                             <i class="fa-solid fa-user me-1"></i> Free Member
                         </span>
                     <% } %>
@@ -197,19 +255,21 @@
     <!-- Hero Section -->
     <section class="hero-banner text-center">
         <div class="container">
-            <span class="badge bg-white border border-warning text-dark px-3 py-2 rounded-pill mb-3 shadow-sm">
-                <i class="fa-solid fa-fire-flame-curved text-primary me-1"></i> မြန်မာ့ LPG နည်းပညာနှင့် စီးပွားရေး ဗဟို
-            </span>
-            <h1 class="display-5 fw-bold mb-3 text-dark">LPG နည်းပညာ သင်တန်းများနှင့် စီးပွားရေး သတင်းအချက်အလက်များ</h1>
-            <p class="fs-5 mx-auto mb-4 text-secondary" style="max-width: 720px;">
-                စက်ရုံ/ဆိုင်ခန်း ဘေးကင်းလုံခြုံရေး၊ မီးသတ်စံချိန်မီ တပ်ဆင်နည်း သင်တန်းများနှင့် ပြည်တွင်း/ပြည်ပ LPG စီးပွားရေး ဗဟုသုတဆောင်းပါးများကို စနစ်တကျ လေ့လာပါ။
+            <div class="hero-badge mb-4 mx-auto">
+                <i class="fa-solid fa-fire-flame-curved text-primary"></i> မြန်မာ့ LPG လုပ်ငန်းဆိုင်ရာဗဟုသုတများနှင့် ဆောင်းပါးများ
+            </div>
+            <h1 class="display-5 fw-extrabold mb-4 text-dark" style="letter-spacing: -1px;">
+                LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတများနှင့် ဆောင်းပါးများ
+            </h1>
+            <p class="fs-5 mx-auto mb-4 text-secondary" style="max-width: 740px;">
+                စက်ရုံ/ဆိုင်ခန်း ဘေးကင်းလုံခြုံရေး၊ မီးသတ်စံချိန်မီ တပ်ဆင်နည်းများနှင့် ပြည်တွင်း/ပြည်ပ LPG လုပ်ငန်းသုံး ကျွမ်းကျင်ဗဟုသုတ ဆောင်းပါးများကို စနစ်တကျ လေ့လာပါ။
             </p>
         </div>
     </section>
 
     <!-- Content Section -->
     <section class="py-5">
-        <div class="container">
+        <div class="container py-4">
               
             <%
                 Connection conn = null;
@@ -223,8 +283,8 @@
 
             <!-- SECTION 1: သင်တန်းများ (Courses) -->
             <div class="mb-5">
-                <h4 class="fw-bold mb-4 section-header">
-                    <i class="fa-solid fa-graduation-cap me-2 text-primary"></i>ကျွမ်းကျင်မှု သင်တန်းများ (Courses)
+                <h4 class="section-header">
+                    <i class="fa-solid fa-graduation-cap text-primary"></i>ကျွမ်းကျင်မှု သင်တန်းများ (Courses)
                 </h4>
                 <div class="row g-4">
                     <%
@@ -242,9 +302,9 @@
                                     <span class="badge-style <%= badgeClass %>"><%= badge %></span>
                                 </div>
                                 <h5 class="fw-bold text-dark mb-2"><%= rs.getString("title") %></h5>
-                                <p class="text-secondary small mb-3"><%= rs.getString("description") %></p>
+                                <p class="text-secondary small mb-4"><%= rs.getString("description") %></p>
                             </div>
-                            <a href="content-detail.jsp?id=<%= rs.getInt("id") %>" class="text-primary text-decoration-none fw-bold small">
+                            <a href="content-detail.jsp?id=<%= rs.getInt("id") %>" class="text-primary text-decoration-none fw-bold small d-inline-flex align-items-center gap-1">
                                 အသေးစိတ် ကြည့်မည် <i class="fa-solid fa-arrow-right ms-1"></i>
                             </a>
                         </div>
@@ -260,8 +320,8 @@
 
             <!-- SECTION 2: ဆောင်းပါးများ (Articles) -->
             <div class="mb-5">
-                <h4 class="fw-bold mb-4 section-header">
-                    <i class="fa-solid fa-newspaper me-2 text-primary"></i>LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတနှင့် ဆောင်းပါးများ (Articles)
+                <h4 class="section-header">
+                    <i class="fa-solid fa-newspaper text-primary"></i>LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတနှင့် ဆောင်းပါးများ (Articles)
                 </h4>
                 <div class="row g-4">
                     <%
@@ -277,9 +337,9 @@
                             <div>
                                 <span class="badge-style <%= badgeClass %> mb-3"><%= badge %> ARTICLE</span>
                                 <h5 class="fw-bold text-dark mb-2"><%= rs.getString("title") %></h5>
-                                <p class="text-secondary small mb-3"><%= rs.getString("description") %></p>
+                                <p class="text-secondary small mb-4"><%= rs.getString("description") %></p>
                             </div>
-                            <a href="content-detail.jsp?id=<%= rs.getInt("id") %>" class="text-primary text-decoration-none fw-bold small">
+                            <a href="content-detail.jsp?id=<%= rs.getInt("id") %>" class="text-primary text-decoration-none fw-bold small d-inline-flex align-items-center gap-1">
                                 ဖတ်ရှုရန် <i class="fa-solid fa-arrow-right ms-1"></i>
                             </a>
                         </div>
@@ -306,17 +366,19 @@
 
             <!-- Subscription Section -->
             <div id="pricing" class="py-5 mt-4">
-                <div class="pricing-card text-center mx-auto" style="max-width: 500px;">
-                    <i class="fa-solid fa-crown text-primary display-4 mb-3"></i>
-                    <h3 class="fw-bold text-dark">VIP Membership Plan</h3>
-                    <div class="my-4">
-                        <span class="display-5 fw-bold text-primary">30,000</span>
-                        <span class="text-secondary fs-6"> Ks / လစဉ်</span>
+                <div class="pricing-card text-center mx-auto" style="max-width: 520px;">
+                    <div class="mb-3">
+                        <i class="fa-solid fa-crown text-warning display-4"></i>
                     </div>
-                    <p class="text-secondary mb-4">
-                        သင်တန်း ဗီဒီယိုများ၊ VIP လုပ်ငန်းသုံး ဆောင်းပါးများနှင့် နည်းပညာ အကူအညီများကို အကန့်အသတ်မရှိ ရရှိပါမည်။
+                    <h3 class="fw-bold text-dark mb-2">VIP Membership Plan</h3>
+                    <div class="my-4">
+                        <span class="display-4 fw-extrabold text-primary">30,000</span>
+                        <span class="text-secondary fs-6 fw-semibold"> Ks / လစဉ်</span>
+                    </div>
+                    <p class="text-secondary mb-4 px-2">
+                        သင်တန်း ဗီဒီယိုများ၊ လုပ်ငန်းသုံး ဗဟုသုတဆောင်းပါးများနှင့် နည်းပညာ အကူအညီများကို အကန့်အသတ်မရှိ ရရှိပါမည်။
                     </p>
-                    <a href="subscribe.jsp" class="btn btn-brand w-100 py-3 text-uppercase">ယခုပဲ အဖွဲ့ဝင်မည်</a>
+                    <a href="subscribe.jsp" class="btn btn-brand w-100 py-3 text-uppercase shadow-sm">ယခုပဲ အဖွဲ့ဝင်မည်</a>
                 </div>
             </div>
 

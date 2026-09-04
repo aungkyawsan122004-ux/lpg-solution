@@ -70,27 +70,27 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-light);
-            box-shadow: 0 4px 20px rgba(30, 41, 59, 0.03);
+            box-shadow: 0 4px 20px rgba(30, 41, 59, 0.04);
         }
 
         .brand-logo {
-            height: 42px;
+            height: 44px;
             width: auto;
             object-fit: contain;
         }
 
         .hero-banner {
-            padding: 150px 0 70px;
-            background: linear-gradient(135thin, #fff7ed 0%, #fef3c7 50%, var(--bg-light) 100%);
-            background: linear-gradient(135deg, #fff7ed 0%, var(--bg-light) 100%);
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 40%, var(--bg-light) 100%);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .app-card {
             background: var(--surface-white);
             border: 1px solid var(--border-light);
-            border-radius: 18px;
+            border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 10px 25px rgba(30, 41, 59, 0.02);
+            box-shadow: 0 10px 30px rgba(30, 41, 59, 0.02);
             transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
             height: 100%;
             display: flex;
@@ -100,7 +100,7 @@
 
         .app-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 35px rgba(249, 115, 22, 0.08);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1);
             border-color: #fed7aa;
         }
 
@@ -109,7 +109,7 @@
             padding: 6px 14px;
             border-radius: 20px;
             display: inline-block;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
         }
 
         .badge-free { background-color: #dcfce7; color: #15803d; }
@@ -121,7 +121,19 @@
             border: 2px solid var(--primary);
             border-radius: 28px;
             padding: 45px 35px;
-            box-shadow: 0 15px 35px rgba(249, 115, 22, 0.08);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #f97316, #fbbf24);
         }
 
         .btn-brand {
@@ -142,10 +154,11 @@
         }
 
         .section-header {
-            border-left: 4px solid var(--primary);
+            border-left: 5px solid var(--primary);
             padding-left: 14px;
             font-weight: 800;
             color: var(--secondary-color);
+            letter-spacing: -0.5px;
         }
     </style>
 </head>
@@ -158,7 +171,6 @@
                 <img src="k.jpg" alt="NexLPG Logo" class="brand-logo">
             </a>
             <div class="d-flex align-items-center gap-3">
-                
                 <% if (loggedInPhone != null) { %>
                     <span class="small text-secondary d-none d-md-inline">
                         <i class="fa-solid fa-user-circle me-1 text-primary"></i>
@@ -178,7 +190,6 @@
                     <a href="login.jsp" class="btn btn-outline-dark btn-sm rounded-pill px-3 fw-bold">အကောင့်ဝင်ရန်</a>
                     <a href="subscribe.jsp" class="btn btn-brand btn-sm">VIP အဖွဲ့ဝင်ရန်</a>
                 <% } %>
-              
             </div>
         </div>
     </nav>
@@ -189,9 +200,9 @@
             <span class="badge bg-white border border-warning text-dark px-3 py-2 rounded-pill mb-3 shadow-sm">
                 <i class="fa-solid fa-fire-flame-curved text-primary me-1"></i> မြန်မာ့ LPG နည်းပညာနှင့် စီးပွားရေး ဗဟို
             </span>
-            <h1 class="display-5 fw-bold mb-3 text-dark">LPG နည်းပညာ သင်တန်းများနှင့် သတင်းအချက်အလက်များ</h1>
+            <h1 class="display-5 fw-bold mb-3 text-dark">LPG နည်းပညာ သင်တန်းများနှင့် စီးပွားရေး သတင်းအချက်အလက်များ</h1>
             <p class="fs-5 mx-auto mb-4 text-secondary" style="max-width: 720px;">
-                စက်ရုံ/ဆိုင်ခန်း ဘေးကင်းလုံခြုံရေး၊ မီးသတ်စံချိန်မီ တပ်ဆင်နည်း သင်တန်းများနှင့် ပြည်တွင်း/ပြည်ပ LPG စီးပွားရေး သတင်းဆောင်းပါးများကို စနစ်တကျ လေ့လာပါ။
+                စက်ရုံ/ဆိုင်ခန်း ဘေးကင်းလုံခြုံရေး၊ မီးသတ်စံချိန်မီ တပ်ဆင်နည်း သင်တန်းများနှင့် ပြည်တွင်း/ပြည်ပ LPG စီးပွားရေး ဗဟုသုတဆောင်းပါးများကို စနစ်တကျ လေ့လာပါ။
             </p>
         </div>
     </section>
@@ -250,7 +261,7 @@
             <!-- SECTION 2: ဆောင်းပါးများ (Articles) -->
             <div class="mb-5">
                 <h4 class="fw-bold mb-4 section-header">
-                    <i class="fa-solid fa-newspaper me-2 text-primary"></i>သတင်းနှင့် အသိပညာပေး ဆောင်းပါးများ (Articles)
+                    <i class="fa-solid fa-newspaper me-2 text-primary"></i>LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတနှင့် ဆောင်းပါးများ (Articles)
                 </h4>
                 <div class="row g-4">
                     <%
@@ -303,7 +314,7 @@
                         <span class="text-secondary fs-6"> Ks / လစဉ်</span>
                     </div>
                     <p class="text-secondary mb-4">
-                        သင်တန်း ဗီဒီယိုများ၊ VIP ဆောင်းပါးများနှင့် နည်းပညာ အကူအညီများကို အကန့်အသတ်မရှိ ရရှိပါမည်။
+                        သင်တန်း ဗီဒီယိုများ၊ VIP လုပ်ငန်းသုံး ဆောင်းပါးများနှင့် နည်းပညာ အကူအညီများကို အကန့်အသတ်မရှိ ရရှိပါမည်။
                     </p>
                     <a href="subscribe.jsp" class="btn btn-brand w-100 py-3 text-uppercase">ယခုပဲ အဖွဲ့ဝင်မည်</a>
                 </div>

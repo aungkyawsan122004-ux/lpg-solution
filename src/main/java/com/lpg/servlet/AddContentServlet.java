@@ -21,18 +21,21 @@ public class AddContentServlet extends HttpServlet {
 
         String category = request.getParameter("category");
         String badgeType = request.getParameter("badgeType");
+        String imageUrl = request.getParameter("imageUrl"); // ပုံလင့်ခ်ကို လက်ခံရယူခြင်း
         String title = request.getParameter("title");
         String description = request.getParameter("description");
         String contentBody = request.getParameter("contentBody");
 
         try (Connection conn = DBConnection.getConnection()) {
-            String sql = "INSERT INTO contents (category, badge_type, title, description, content_body) VALUES (?, ?, ?, ?, ?)";
+            // SQL Query ထဲသို့ image_url ထည့်သွင်းခြင်း
+            String sql = "INSERT INTO contents (category, badge_type, image_url, title, description, content_body) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, category);
             pstmt.setString(2, badgeType);
-            pstmt.setString(3, title);
-            pstmt.setString(4, description);
-            pstmt.setString(5, contentBody);
+            pstmt.setString(3, imageUrl);
+            pstmt.setString(4, title);
+            pstmt.setString(5, description);
+            pstmt.setString(6, contentBody);
 
             pstmt.executeUpdate();
             pstmt.close();

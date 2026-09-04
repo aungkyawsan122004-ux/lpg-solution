@@ -303,7 +303,7 @@
             <!-- Enhanced Custom Logo with Image -->
             <a class="brand-logo-container" href="index.jsp">
                 <div class="logo-img-wrapper">
-                    <img src="k_3.jpg" alt="LPG Business Solution Logo">
+                    <img src="k.jpg" alt="LPG Business Solution Logo">
                 </div>
                 <div class="logo-text-group">
                     <span class="logo-title">LPG BUSINESS</span>

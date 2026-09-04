@@ -329,8 +329,8 @@
                     %>
                     <div class="col-md-4">
                         <div class="content-grid-card">
-                            <!-- Direct LPG / Gas Cylinder / Technical Safety Course Image -->
-                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80');"></div>
+                            <!-- Technical Safety & Gas Cylinder Inspection Image -->
+                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80');"></div>
                             <div class="card-body-custom">
                                 <div>
                                     <span class="badge-pill-custom <%= badgeClass %>"><%= badge %></span>
@@ -368,8 +368,8 @@
                     %>
                     <div class="col-md-4">
                         <div class="content-grid-card">
-                            <!-- Direct Industrial Gas / Energy / Flame Safety Article Image -->
-                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&q=80');"></div>
+                            <!-- Industrial Engineering / Factory Piping & Gas Supply Image -->
+                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80');"></div>
                             <div class="card-body-custom">
                                 <div>
                                     <span class="badge-pill-custom <%= badgeClass %> mb-2"><%= badge %> ARTICLE</span>

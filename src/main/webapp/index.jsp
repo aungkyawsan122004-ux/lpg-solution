@@ -54,7 +54,7 @@
             --bg-earth: #f8fafc;
             --surface-white: #ffffff;
             --text-dark: #111827;
-            --text-muted: #fffff;
+            --text-muted: #ffffff;
             --border-subtle: #e5e7eb;
         }
 

@@ -428,8 +428,8 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-4">
-                    <h5 class="text-white">NexLPG Center</h5>
-                    <p class="small text-muted">မြန်မာနိုင်ငံအတွင်းရှိ LPG လုပ်ငန်းရှင်များ၊ တပ်ဆင်ရေးပညာရှင်များနှင့် စိတ်ပါဝင်စားသူများအတွက် ဘေးကင်းလုံခြုံရေးနှင့် နည်းပညာဗဟုသုတများကို ဖြန့်ဝေပေးနေသော စင်တာဖြစ်သည်။</p>
+                    <h5 class="text-white">LPG BUSINESS SOLUTION</h5>
+                    <p class="small text-muted">မြန်မာနိုင်ငံအတွင်းရှိ LPG လုပ်ငန်းရှင်များ နှင့် စိတ်ပါဝင်စားသူများအတွက် ဘေးကင်းလုံခြုံရေးနှင့် နည်းပညာဗဟုသုတများကို ဖြန့်ဝေပေးနေသော စင်တာဖြစ်သည်။</p>
                 </div>
                 <div class="col-md-3">
                     <h5>လင့်ခ်များ</h5>
@@ -450,7 +450,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="mb-0">&copy; 2026 NexLPG. All Rights Reserved.</p>
+                <p class="mb-0">&copy; 2026 LPG BUSINESS SOLUTION. All Rights Reserved.</p>
             </div>
         </div>
     </footer>

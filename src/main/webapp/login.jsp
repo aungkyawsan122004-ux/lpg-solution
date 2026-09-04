@@ -9,14 +9,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --brand-primary: #f97316;
-            --brand-dark: #0f172a;
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
         body {
             font-family: 'Padauk', 'Plus Jakarta Sans', sans-serif;
-            background: var(--bg-gradient);
+            background-color: #333d4e; /* ပုံပါနောက်ခံအရောင်နှင့် ကိုက်ညီသော Dark Slate အရောင် */
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -25,23 +20,25 @@
         }
         .login-card {
             background: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid #e2e8f0;
             border-radius: 24px;
             padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             width: 100%;
             max-width: 440px;
-            position: relative;
-            overflow: hidden;
         }
-        .login-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, #f97316, #ef4444);
+        .brand-badge {
+            background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
+            color: #713f12;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 15px;
         }
         .form-control, .input-group-text {
             border-radius: 12px;
@@ -51,12 +48,12 @@
             font-size: 0.95rem;
         }
         .form-control:focus {
-            border-color: var(--brand-primary);
+            border-color: #f97316;
             box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
             background-color: #ffffff;
         }
         .btn-brand {
-            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            background: #f97316;
             color: #ffffff;
             border-radius: 12px;
             padding: 12px;
@@ -66,7 +63,7 @@
             transition: all 0.3s ease;
         }
         .btn-brand:hover {
-            background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+            background: #ea580c;
             color: #ffffff;
             transform: translateY(-1px);
         }
@@ -77,13 +74,14 @@
     <div class="container">
         <div class="login-card mx-auto">
             <div class="text-center mb-4">
-                <a href="index.jsp" class="text-decoration-none d-inline-flex align-items-center gap-2 mb-2">
-                    <div class="bg-warning bg-opacity-10 p-2 rounded-circle">
-                        <i class="fa-solid fa-fire text-warning fs-3"></i>
-                    </div>
-                </a>
-                <h4 class="fw-extrabold text-dark mt-2 mb-1">LPG BUSINESS SOLUTION</h4>
-                <p class="text-secondary small">စနစ်သို့ အကောင့်ဝင်ရောက်ရန် အချက်အလက်များ ထည့်ပါ</p>
+                <!-- ပုံပါအတိုင်း အဝါရောင် လိုဂိုတံဆိပ် (Badge) ထည့်သွင်းထားခြင်း -->
+                <div>
+                    <span class="brand-badge">
+                        <i class="fa-solid fa-fire text-danger"></i> LPG Business Solution
+                    </span>
+                </div>
+                <h4 class="fw-extrabold text-dark mt-2 mb-1">စနစ်သို့ အကောင့်ဝင်ရန်</h4>
+                <p class="text-secondary small">အမည်နှင့် ဖုန်းနံပါတ်ဖြင့် အလွယ်တကူ ဝင်ရောက်ပါ</p>
             </div>
 
             <!-- LoginServlet သို့ နာမည်နှင့် ဖုန်းနံပါတ် ပို့ပေးမည် -->

@@ -302,7 +302,7 @@
     <!-- Main Content Dynamic Section -->
     <section class="py-5">
         <div class="container my-3">
-              
+            
             <%
                 Connection conn = null;
                 Statement stmt = null;
@@ -326,11 +326,12 @@
                             hasCourse = true;
                             String badge = rs.getString("badge_type");
                             String badgeClass = badge.equalsIgnoreCase("VIP") ? "badge-vip-custom" : (badge.equalsIgnoreCase("FREE") ? "badge-free-custom" : "badge-course-custom");
+                            String dbImg = rs.getString("image_url");
                     %>
                     <div class="col-md-4">
                         <div class="content-grid-card">
-                            <!-- Technical Safety & Gas Cylinder Inspection Image -->
-                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80');"></div>
+                            <!-- Database မှ Base64 ပုံကို တိုက်ရိုက်ခေါ်သုံးခြင်း -->
+                            <div class="card-img-holder" style="background-image: url('<%= (dbImg != null && !dbImg.isEmpty()) ? dbImg : "" %>');"></div>
                             <div class="card-body-custom">
                                 <div>
                                     <span class="badge-pill-custom <%= badgeClass %>"><%= badge %></span>
@@ -365,11 +366,12 @@
                             hasArticle = true;
                             String badge = rs.getString("badge_type");
                             String badgeClass = badge.equalsIgnoreCase("VIP") ? "badge-vip-custom" : "badge-free-custom";
+                            String dbImgArt = rs.getString("image_url");
                     %>
                     <div class="col-md-4">
                         <div class="content-grid-card">
-                            <!-- Industrial Engineering / Factory Piping & Gas Supply Image -->
-                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80');"></div>
+                            <!-- Database မှ Base64 ပုံကို တိုက်ရိုက်ခေါ်သုံးခြင်း -->
+                            <div class="card-img-holder" style="background-image: url('<%= (dbImgArt != null && !dbImgArt.isEmpty()) ? dbImgArt : "" %>');"></div>
                             <div class="card-body-custom">
                                 <div>
                                     <span class="badge-pill-custom <%= badgeClass %> mb-2"><%= badge %> ARTICLE</span>

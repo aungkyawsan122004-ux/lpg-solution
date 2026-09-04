@@ -80,26 +80,27 @@
             text-decoration: none;
         }
 
-        .logo-icon-wrapper {
-            position: relative;
+        .logo-img-wrapper {
             width: 45px;
             height: 45px;
-            background: linear-gradient(135deg, #1f2937 0%, #0f172a 100%);
             border-radius: 12px;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 12px rgba(31, 41, 55, 0.2);
             transition: transform 0.3s ease;
+            background: #ffffff;
         }
 
-        .brand-logo-container:hover .logo-icon-wrapper {
+        .logo-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .brand-logo-container:hover .logo-img-wrapper {
             transform: scale(1.05) rotate(-3deg);
-        }
-
-        .logo-icon-wrapper i {
-            font-size: 1.25rem;
-            color: var(--brand-accent);
         }
 
         .logo-text-group {
@@ -299,10 +300,10 @@
     <!-- Top Navigation Bar -->
     <header class="top-navbar sticky-top">
         <div class="container d-flex justify-content-between align-items-center">
-            <!-- Enhanced Custom Logo -->
+            <!-- Enhanced Custom Logo with Image -->
             <a class="brand-logo-container" href="index.jsp">
-                <div class="logo-icon-wrapper">
-                    <i class="fa-solid fa-fire-flame-curved"></i>
+                <div class="logo-img-wrapper">
+                    <img src="k_3.jpg" alt="LPG Business Solution Logo">
                 </div>
                 <div class="logo-text-group">
                     <span class="logo-title">LPG BUSINESS</span>

@@ -21,8 +21,8 @@
         :root {
             --admin-bg: #f1f5f9;
             --card-bg: #ffffff;
-            --primary-color: #4f46e5;
-            --primary-hover: #4338ca;
+            --primary-color: #f97316;
+            --primary-hover: #ea580c;
             --text-main: #0f172a;
             --text-muted: #64748b;
             --border-color: #e2e8f0;
@@ -37,12 +37,26 @@
         }
 
         .dashboard-header {
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            background-color: #333d4e; /* ပုံပါနောက်ခံအရောင်နှင့် ကိုက်ညီသော Dark Slate */
             color: #ffffff;
-            padding: 30px 0;
+            padding: 35px 0;
             border-radius: 0 0 24px 24px;
-            box-shadow: 0 10px 25px -5px rgba(30, 27, 75, 0.2);
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
             margin-bottom: 40px;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
+            color: #713f12;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 12px;
         }
 
         .card-custom {
@@ -77,7 +91,7 @@
 
         .form-control:focus, .form-select:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
             background-color: #ffffff;
         }
 
@@ -126,7 +140,7 @@
             font-size: 0.75rem;
         }
 
-        .badge-article { background-color: #e0e7ff; color: #3730a3; }
+        .badge-article { background-color: #ffedd5; color: #9a3412; }
         .badge-free { background-color: #dcfce7; color: #166534; }
         .badge-vip { background-color: #fee2e2; color: #991b1b; }
     </style>
@@ -137,7 +151,13 @@
     <div class="dashboard-header">
         <div class="container d-flex justify-content-between align-items-center">
             <div>
-                <h2 class="fw-extrabold mb-1"><i class="fa-solid fa-user-shield me-2 text-warning"></i>LPG BUSINESS SOLUTION Admin Dashboard</h2>
+                <!-- လိုဂိုတံဆိပ် (Badge) အသစ်ထည့်သွင်းထားခြင်း -->
+                <div>
+                    <span class="brand-badge">
+                        <i class="fa-solid fa-fire text-danger"></i> LPG Business Solution
+                    </span>
+                </div>
+                <h2 class="fw-extrabold mb-1"><i class="fa-solid fa-user-shield me-2 text-warning"></i>Admin Management Dashboard</h2>
                 <p class="text-secondary mb-0 small text-light opacity-75">ဆောင်းပါးများနှင့် VIP အဖွဲ့ဝင်များကို စနစ်တကျ စီမံခန့်ခွဲရန်</p>
             </div>
             <a href="index.jsp" class="btn btn-light rounded-pill fw-bold px-4 shadow-sm text-dark">

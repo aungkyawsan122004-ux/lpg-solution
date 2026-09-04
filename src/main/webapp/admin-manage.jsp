@@ -36,7 +36,8 @@
             <div class="col-md-5">
                 <div class="card-custom shadow-sm">
                     <h5 class="fw-bold mb-3"><i class="fa-solid fa-plus-circle text-primary me-2"></i>Content အသစ်ထည့်ရန်</h5>
-                    <form action="${pageContext.request.contextPath}/AddContentServlet" method="post">
+                    <!-- enctype="multipart/form-data" ထည့်သွင်းထားပါသည် -->
+                    <form action="${pageContext.request.contextPath}/AddContentServlet" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label class="form-label fw-bold">အမျိုးအစား (Category)</label>
                             <select name="category" class="form-select" required>
@@ -52,9 +53,9 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label fw-bold">ပုံလင့်ခ် (Image URL)</label>
-                            <input type="url" name="imageUrl" class="form-control" placeholder="https://example.com/image.jpg (သို့) ပုံလင့်ခ်ထည့်ရန်..." required>
-                            <div class="form-text small">Unsplash သို့မဟုတ် အခြား Image Hosting မှ Direct Image Link ထည့်ပါ။</div>
+                            <label class="form-label fw-bold">စက်ထဲမှ ပုံရွေးချယ်ရန် (Choose Image)</label>
+                            <input type="file" name="imageFile" class="form-control" accept="image/*" required>
+                            <div class="form-text small">သင့်ကွန်ပျူတာ/စက်ထဲရှိ ပုံဖိုင် (JPG, PNG) ကို ရွေးချယ်ပါ။</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label fw-bold">ခေါင်းစဉ် (Title)</label>

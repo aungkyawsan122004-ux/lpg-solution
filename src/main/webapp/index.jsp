@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, com.lpg.util.DBConnection" %>
 <%
-    String loggedInPhone = (String) session.getAttribute("userPhone");
+    String loggedInPhone = (String) session.getAttribute("userPhone"); 
     boolean isVipApproved = false;
     String displayName = loggedInPhone; 
 

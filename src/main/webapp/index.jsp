@@ -54,7 +54,7 @@
             --bg-earth: #f8fafc;
             --surface-white: #ffffff;
             --text-dark: #111827;
-            --text-muted: #4b5563;
+            --text-muted: #94a3b8;
             --border-subtle: #e5e7eb;
         }
 
@@ -198,11 +198,10 @@
         }
         .badge-free-custom { background-color: #e6f4ea; color: #137333; }
         .badge-vip-custom { background-color: #fce8e6; color: #c5221f; }
-        .badge-course-custom { background-color: #e8f0fe; color: #1a73e8; }
 
         .footer-dark {
             background-color: #0f172a;
-            color: #94a3b8;
+            color: #cbd5e1 !important;
             padding: 70px 0 30px 0;
             font-size: 0.9rem;
         }
@@ -224,16 +223,21 @@
 
         .footer-dark ul li {
             margin-bottom: 10px;
+            color: #cbd5e1 !important;
         }
 
         .footer-dark ul li a {
-            color: #94a3b8;
+            color: #cbd5e1 !important;
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .footer-dark ul li a:hover {
-            color: #ffffff;
+            color: #ffffff !important;
+        }
+
+        .footer-dark p {
+            color: #cbd5e1 !important;
         }
 
         .footer-bottom {
@@ -256,7 +260,6 @@
             
             <nav class="d-none d-lg-flex align-items-center gap-4">
                 <a href="index.jsp" class="nav-links-top">ပင်မစာမျက်နှာ</a>
-                <a href="#courses" class="nav-links-top">သင်တန်းများ</a>
                 <a href="#articles" class="nav-links-top">ဆောင်းပါးများ</a>
                 <a href="#pricing" class="nav-links-top">VIP အဖွဲ့ဝင်ရန်</a>
             </nav>
@@ -313,47 +316,7 @@
                         stmt = conn.createStatement();
             %>
 
-            <!-- SECTION 1: သင်တန်းများ (Courses) -->
-            <div id="courses" class="mb-5 pt-4">
-                <h3 class="category-heading"><i class="fa-solid fa-graduation-cap text-primary me-2"></i>ကျွမ်းကျင်မှု သင်တန်းများ (Courses)</h3>
-                <p class="category-subheading">စနစ်တကျ လေ့ကျင့်သင်ကြားပေးသော LPG နည်းပညာနှင့် စီမံခန့်ခွဲမှု သင်တန်းများ</p>
-                
-                <div class="row g-4">
-                    <%
-                        rs = stmt.executeQuery("SELECT * FROM contents WHERE category = 'COURSE' ORDER BY id DESC");
-                        boolean hasCourse = false;
-                        while(rs.next()) {
-                            hasCourse = true;
-                            String badge = rs.getString("badge_type");
-                            String badgeClass = badge.equalsIgnoreCase("VIP") ? "badge-vip-custom" : (badge.equalsIgnoreCase("FREE") ? "badge-free-custom" : "badge-course-custom");
-                            String dbImg = rs.getString("image_url");
-                    %>
-                    <div class="col-md-4">
-                        <div class="content-grid-card">
-                            <!-- Database မှ Base64 ပုံကို တိုက်ရိုက်ခေါ်သုံးခြင်း -->
-                            <div class="card-img-holder" style="background-image: url('<%= (dbImg != null && !dbImg.isEmpty()) ? dbImg : "" %>');"></div>
-                            <div class="card-body-custom">
-                                <div>
-                                    <span class="badge-pill-custom <%= badgeClass %>"><%= badge %></span>
-                                    <h5 class="fw-bold text-dark mb-2 fs-5"><%= rs.getString("title") %></h5>
-                                    <p class="text-secondary small mb-3"><%= rs.getString("description") %></p>
-                                </div>
-                                <a href="content-detail.jsp?id=<%= rs.getInt("id") %>" class="text-dark text-decoration-none fw-bold small d-flex align-items-center gap-2 mt-2">
-                                    အသေးစိတ် ကြည့်မည် <i class="fa-solid fa-arrow-right text-primary"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <% 
-                        } 
-                        if(!hasCourse) {
-                    %>
-                    <div class="col-12 text-center py-4"><p class="text-muted">သင်တန်းများ မရှိသေးပါ။ Admin Panel မှ စတင်ထည့်သွင်းပါ။</p></div>
-                    <% } %>
-                </div>
-            </div>
-
-            <!-- SECTION 2: ဆောင်းပါးများ (Articles) -->
+            <!-- SECTION: ဆောင်းပါးများ (Articles) -->
             <div id="articles" class="mb-5 pt-4">
                 <h3 class="category-heading"><i class="fa-solid fa-book-open-reader text-primary me-2"></i>LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတနှင့် ဆောင်းပါးများ</h3>
                 <p class="category-subheading">လုပ်ငန်းရှင်များနှင့် ကျွမ်းကျင်ပညာရှင်များအတွက် သိသင့်သိထိုက်သော အချက်အလက်များ</p>
@@ -429,20 +392,19 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <h5 class="text-white">LPG BUSINESS SOLUTION</h5>
-                    <p class="small text-muted">မြန်မာနိုင်ငံအတွင်းရှိ LPG လုပ်ငန်းရှင်များ နှင့် စိတ်ပါဝင်စားသူများအတွက် ဘေးကင်းလုံခြုံရေးနှင့် နည်းပညာဗဟုသုတများကို ဖြန့်ဝေပေးနေသော စင်တာဖြစ်သည်။</p>
+                    <p class="small">မြန်မာနိုင်ငံအတွင်းရှိ LPG လုပ်ငန်းရှင်များ နှင့် စိတ်ပါဝင်စားသူများအတွက် ဘေးကင်းလုံခြုံရေးနှင့် နည်းပညာဗဟုသုတများကို ဖြန့်ဝေပေးနေသော စင်တာဖြစ်သည်။</p>
                 </div>
                 <div class="col-md-3">
                     <h5>လင့်ခ်များ</h5>
                     <ul>
                         <li><a href="index.jsp">ပင်မစာမျက်နှာ</a></li>
-                        <li><a href="#courses">သင်တန်းများ</a></li>
                         <li><a href="#articles">ဆောင်းပါးများ</a></li>
                         <li><a href="subscribe.jsp">အဖွဲ့ဝင်ရန်</a></li>
                     </ul>
                 </div>
                 <div class="col-md-5">
                     <h5>ဆက်သွယ်ရန်</h5>
-                    <ul class="small text-muted">
+                    <ul class="small">
                         <li><i class="fa-solid fa-location-dot me-2 text-warning"></i> ရန်ကုန်မြို့, မြန်မာနိုင်ငံ</li>
                         <li><i class="fa-solid fa-phone me-2 text-warning"></i> +95 9 123 456 789</li>
                         <li><i class="fa-solid fa-envelope me-2 text-warning"></i> support@nexlpg.com</li>

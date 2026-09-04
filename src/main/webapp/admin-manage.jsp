@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexLPG | Admin Management Dashboard</title>
+    <title>LPG BUSINESS SOLUTION | Admin Management Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -137,7 +137,7 @@
     <div class="dashboard-header">
         <div class="container d-flex justify-content-between align-items-center">
             <div>
-                <h2 class="fw-extrabold mb-1"><i class="fa-solid fa-user-shield me-2 text-warning"></i>NexLPG Admin Dashboard</h2>
+                <h2 class="fw-extrabold mb-1"><i class="fa-solid fa-user-shield me-2 text-warning"></i>LPG BUSINESS SOLUTION Admin Dashboard</h2>
                 <p class="text-secondary mb-0 small text-light opacity-75">ဆောင်းပါးများနှင့် VIP အဖွဲ့ဝင်များကို စနစ်တကျ စီမံခန့်ခွဲရန်</p>
             </div>
             <a href="index.jsp" class="btn btn-light rounded-pill fw-bold px-4 shadow-sm text-dark">

@@ -68,8 +68,59 @@
         .top-navbar {
             background-color: var(--surface-white);
             border-bottom: 1px solid var(--border-subtle);
-            padding: 12px 0;
+            padding: 10px 0;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        /* Custom Logo Design Styles */
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon-wrapper {
+            position: relative;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #1f2937 0%, #0f172a 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(31, 41, 55, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .brand-logo-container:hover .logo-icon-wrapper {
+            transform: scale(1.05) rotate(-3deg);
+        }
+
+        .logo-icon-wrapper i {
+            font-size: 1.25rem;
+            color: var(--brand-accent);
+        }
+
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--brand-primary);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .nav-links-top {
@@ -248,8 +299,15 @@
     <!-- Top Navigation Bar -->
     <header class="top-navbar sticky-top">
         <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand fw-bold text-dark text-decoration-none fs-5" href="index.jsp">
-                LPG BUSINESS SOLUTION
+            <!-- Enhanced Custom Logo -->
+            <a class="brand-logo-container" href="index.jsp">
+                <div class="logo-icon-wrapper">
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                </div>
+                <div class="logo-text-group">
+                    <span class="logo-title">LPG BUSINESS</span>
+                    <span class="logo-subtitle">SOLUTION</span>
+                </div>
             </a>
             
             <nav class="d-none d-lg-flex align-items-center gap-4">

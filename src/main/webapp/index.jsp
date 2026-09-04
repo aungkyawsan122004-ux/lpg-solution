@@ -8,7 +8,6 @@
     if (loggedInPhone != null) {
         try (Connection conn = DBConnection.getConnection()) {
             
-            // subscriptions ထဲမှ user_name ကို ဆွဲထုတ်ခြင်း
             String nameSql = "SELECT user_name FROM subscriptions WHERE phone = ?";
             try (PreparedStatement pName = conn.prepareStatement(nameSql)) {
                 pName.setString(1, loggedInPhone);
@@ -22,7 +21,6 @@
                 }
             }
 
-            // VIP Status နှင့် သက်တမ်းစစ်ဆေးခြင်း
             String checkVip = "SELECT * FROM subscriptions WHERE phone = ? AND status = 'Approved' AND end_date >= CURDATE()";
             try (PreparedStatement pCheck = conn.prepareStatement(checkVip)) {
                 pCheck.setString(1, loggedInPhone);
@@ -51,8 +49,9 @@
 
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
+            --primary: #f97316;
+            --primary-dark: #ea580c;
+            --secondary-color: #1e293b;
             --bg-light: #f8fafc;
             --surface-white: #ffffff;
             --border-light: #e2e8f0;
@@ -64,28 +63,35 @@
             font-family: 'Padauk', 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-light);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .navbar-custom {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-light);
-            box-shadow: 0 1px 15px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 20px rgba(30, 41, 59, 0.03);
+        }
+
+        .brand-logo {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
         }
 
         .hero-banner {
-            padding: 140px 0 60px;
-            background: linear-gradient(180deg, #eff6ff 0%, var(--bg-light) 100%);
+            padding: 150px 0 70px;
+            background: linear-gradient(135thin, #fff7ed 0%, #fef3c7 50%, var(--bg-light) 100%);
+            background: linear-gradient(135deg, #fff7ed 0%, var(--bg-light) 100%);
         }
 
         .app-card {
             background: var(--surface-white);
             border: 1px solid var(--border-light);
-            border-radius: 16px;
-            padding: 28px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(30, 41, 59, 0.02);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -93,9 +99,9 @@
         }
 
         .app-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.1);
-            border-color: #cbd5e1;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px rgba(249, 115, 22, 0.08);
+            border-color: #fed7aa;
         }
 
         .badge-style {
@@ -103,18 +109,19 @@
             padding: 6px 14px;
             border-radius: 20px;
             display: inline-block;
+            font-size: 0.85rem;
         }
 
         .badge-free { background-color: #dcfce7; color: #15803d; }
         .badge-vip { background-color: #fee2e2; color: #b91c1c; }
-        .badge-course { background-color: #e0e7ff; color: #4338ca; }
+        .badge-course { background-color: #ffedd5; color: #c2410c; }
 
         .pricing-card {
             background: #ffffff;
             border: 2px solid var(--primary);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+            border-radius: 28px;
+            padding: 45px 35px;
+            box-shadow: 0 15px 35px rgba(249, 115, 22, 0.08);
         }
 
         .btn-brand {
@@ -124,20 +131,21 @@
             padding: 12px 30px;
             font-weight: 700;
             border: none;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
             transition: 0.3s;
         }
 
         .btn-brand:hover {
             background: var(--primary-dark);
             color: #ffffff;
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
         }
 
         .section-header {
             border-left: 4px solid var(--primary);
-            padding-left: 12px;
+            padding-left: 14px;
             font-weight: 800;
-            color: var(--text-main);
+            color: var(--secondary-color);
         }
     </style>
 </head>
@@ -146,9 +154,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-custom px-4">
         <div class="container">
-            <a class="navbar-brand fw-extrabold fs-4 text-primary d-flex align-items-center gap-2" href="index.jsp">
-                <i class="fa-solid fa-fire text-danger"></i> 
-                <span class="text-dark fw-bold">Nex</span><span class="text-primary fw-extrabold">LPG</span>
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.jsp">
+                <img src="k.jpg" alt="NexLPG Logo" class="brand-logo">
             </a>
             <div class="d-flex align-items-center gap-3">
                 
@@ -158,20 +165,19 @@
                         <b class="text-dark"><%= displayName %></b>
                     </span>
                     <% if (isVipApproved) { %>
-                        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fs-6 fw-bold shadow-sm">
-                            <i class="fa-solid fa-crown me-1 text-danger"></i> VIP Member
+                        <span class="badge bg-danger text-white px-3 py-2 rounded-pill fs-6 fw-bold shadow-sm">
+                            <i class="fa-solid fa-crown me-1 text-warning"></i> VIP Member
                         </span>
                     <% } else { %>
-                        <span class="badge bg-secondary px-3 py-2 rounded-pill fs-6">
+                        <span class="badge bg-light text-secondary border px-3 py-2 rounded-pill fs-6">
                             <i class="fa-solid fa-user me-1"></i> Free Member
                         </span>
                     <% } %>
                     <a href="LogoutServlet" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-bold">ထွက်ရန်</a>
                 <% } else { %>
-                    <a href="login.jsp" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-bold">အကောင့်ဝင်ရန်</a>
+                    <a href="login.jsp" class="btn btn-outline-dark btn-sm rounded-pill px-3 fw-bold">အကောင့်ဝင်ရန်</a>
                     <a href="subscribe.jsp" class="btn btn-brand btn-sm">VIP အဖွဲ့ဝင်ရန်</a>
                 <% } %>
-
               
             </div>
         </div>
@@ -180,8 +186,8 @@
     <!-- Hero Section -->
     <section class="hero-banner text-center">
         <div class="container">
-            <span class="badge bg-white border border-primary text-primary px-3 py-2 rounded-pill mb-3 shadow-sm">
-                <i class="fa-solid fa-shield-halved me-1"></i> မြန်မာ့ LPG နည်းပညာနှင့် စီးပွားရေး ဗဟို
+            <span class="badge bg-white border border-warning text-dark px-3 py-2 rounded-pill mb-3 shadow-sm">
+                <i class="fa-solid fa-fire-flame-curved text-primary me-1"></i> မြန်မာ့ LPG နည်းပညာနှင့် စီးပွားရေး ဗဟို
             </span>
             <h1 class="display-5 fw-bold mb-3 text-dark">LPG နည်းပညာ သင်တန်းများနှင့် သတင်းအချက်အလက်များ</h1>
             <p class="fs-5 mx-auto mb-4 text-secondary" style="max-width: 720px;">
@@ -193,7 +199,7 @@
     <!-- Content Section -->
     <section class="py-5">
         <div class="container">
-            
+              
             <%
                 Connection conn = null;
                 Statement stmt = null;
@@ -290,7 +296,7 @@
             <!-- Subscription Section -->
             <div id="pricing" class="py-5 mt-4">
                 <div class="pricing-card text-center mx-auto" style="max-width: 500px;">
-                    <i class="fa-solid fa-crown text-warning display-4 mb-3"></i>
+                    <i class="fa-solid fa-crown text-primary display-4 mb-3"></i>
                     <h3 class="fw-bold text-dark">VIP Membership Plan</h3>
                     <div class="my-4">
                         <span class="display-5 fw-bold text-primary">30,000</span>

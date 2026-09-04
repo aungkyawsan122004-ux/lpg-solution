@@ -152,14 +152,14 @@
             margin-bottom: 40px;
         }
 
-        /* Classic Grid Cards matching the style */
+        /* Classic Grid Cards with Smooth Zoom Animation */
         .content-grid-card {
             background: var(--surface-white);
             border: 1px solid var(--border-subtle);
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -167,8 +167,8 @@
         }
 
         .content-grid-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
         .card-img-holder {
@@ -177,6 +177,17 @@
             background-size: cover;
             background-position: center;
             position: relative;
+            overflow: hidden;
+        }
+
+        /* Image Zoom Animation Effect on Card Hover */
+        .content-grid-card:hover .card-img-holder {
+            transform: scale(1.05);
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .card-img-holder {
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .card-body-custom {
@@ -315,7 +326,7 @@
                         stmt = conn.createStatement();
             %>
 
-            <!-- SECTION 1: သင်တန်းများ (Courses) -->
+            <!-- SECTION 1: သင်တန်းများ (Courses) - LPG Technical Training & Safety Theme Images -->
             <div id="courses" class="mb-5 pt-4">
                 <h3 class="category-heading">ကျွမ်းကျင်မှု သင်တန်းများ (Courses)</h3>
                 <p class="category-subheading">စနစ်တကျ လေ့ကျင့်သင်ကြားပေးသော LPG နည်းပညာနှင့် စီမံခန့်ခွဲမှု သင်တန်းများ</p>
@@ -331,7 +342,8 @@
                     %>
                     <div class="col-md-4">
                         <div class="content-grid-card">
-                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80');"></div>
+                            <!-- Topic-related training and technical engineering image -->
+                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80');"></div>
                             <div class="card-body-custom">
                                 <div>
                                     <span class="badge-pill-custom <%= badgeClass %>"><%= badge %></span>
@@ -353,7 +365,7 @@
                 </div>
             </div>
 
-            <!-- SECTION 2: ဆောင်းပါးများ (Articles) -->
+            <!-- SECTION 2: ဆောင်းပါးများ (Articles) - LPG Business, Energy & Safety Management Theme Images -->
             <div id="articles" class="mb-5 pt-4">
                 <h3 class="category-heading">LPG လုပ်ငန်းဆိုင်ရာ ဗဟုသုတနှင့် ဆောင်းပါးများ</h3>
                 <p class="category-subheading">လုပ်ငန်းရှင်များနှင့် ကျွမ်းကျင်ပညာရှင်များအတွက် သိသင့်သိထိုက်သော အချက်အလက်များ</p>
@@ -369,7 +381,8 @@
                     %>
                     <div class="col-md-4">
                         <div class="content-grid-card">
-                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80');"></div>
+                            <!-- Topic-related energy, gas storage, and industry management image -->
+                            <div class="card-img-holder" style="background-image: url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80');"></div>
                             <div class="card-body-custom">
                                 <div>
                                     <span class="badge-pill-custom <%= badgeClass %> mb-2"><%= badge %> ARTICLE</span>

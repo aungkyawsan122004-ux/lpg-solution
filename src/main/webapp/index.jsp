@@ -458,9 +458,9 @@
                 <div class="col-md-5">
                     <h5>ဆက်သွယ်ရန်</h5>
                     <ul class="small">
-                        <li><i class="fa-solid fa-location-dot me-2 text-warning"></i> ရန်ကုန်မြို့, မြန်မာနိုင်ငံ</li>
-                        <li><i class="fa-solid fa-phone me-2 text-warning"></i> +95 9 123 456 789</li>
-                        <li><i class="fa-solid fa-envelope me-2 text-warning"></i> support@nexlpg.com</li>
+                        <li><i class="fa-solid fa-location-dot me-2 text-warning"></i>ပြင်ဦးလွင်မြို့။</li>
+                        <li><i class="fa-solid fa-phone me-2 text-warning"></i> +95 9 665 448 418</li>
+                        
                     </ul>
                 </div>
             </div>
